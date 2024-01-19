@@ -1,0 +1,163 @@
+/* settings.css */
+
+/* Importing Fonts */
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+
+
+.user-page {
+    text-align: center;
+}
+
+.logged-out-message {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 1.5rem;
+    color: #f9d3b4;
+    background-color: #333;
+
+}
+
+
+/* Container for the side-by-side layout */
+.user-page-forms {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Spacing between boxes */
+}
+
+.password-change-box, .delete-user-box {
+    flex: 1; /* Each box takes equal space */
+    padding: 15px;
+    border: 1px solid #ccc; /* Example border */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Example shadow */
+    /* Add more styles as per your design */
+}
+
+/* This Message CSS will control, LogIn-, SignIn- and registration text */
+.status-message {
+    text-align: center;
+    margin-top: 20px;
+    font-family: var(--font-raleway);
+    color: var(--textColor);
+}
+
+p, h1, h2, h4, h5, h6 {
+    color: var(--textColor);
+    font-family: var(--font-raleway);
+}
+
+ h3 {
+    color: #f9d3b4;
+    text-align: center;
+    font-family: var(--font-roboto);
+}
+
+/* Common styles for boxes */
+.box {
+    border-radius: 12px;
+    padding: 20px;
+    margin: 10px auto;
+    max-width: 300px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+    font-family: var(--font-raleway);
+    background-color: #1f2123;
+    color: #a1a1a1;
+}
+
+.box:hover {
+    box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05, 1.05);
+}
+
+/* Styles for headings inside the box */
+.box h2 {
+    text-align: center;
+    color: #f9d3b4;
+}
+
+/* Styles for labels and inputs inside the box */
+.box label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #eee;
+}
+
+.box input[type="text"], .box input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 20px 0;
+    display: block;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #2d2f32;
+    color: #a1a1a1;
+}
+
+/* Style for the placeholder text */
+.box input::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+/* Styles for buttons */
+.box button {
+    background-color: #282828;
+    color: white;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.box button:hover {
+    background-color: #1f2123;
+    opacity: 0.8;
+}
+
+.delete-box {
+    display: grid;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+
+/* Red button styles */
+.red-button {
+    background-color: red;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.red-button:hover {
+    background-color: rgb(243, 77, 71);
+}
+
+
+
+/* Responsive Adjustments */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .box {
+        max-width: 80%; /* Adjusts width on tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .box {
+        max-width: 95%; /* Adjusts width on small phones */
+    }
+}

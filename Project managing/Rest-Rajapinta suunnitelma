@@ -1,0 +1,128 @@
+REST rajapinnan suunnittelua.
+Voisi näyttää jotakuinkin tältä.
+
+Komennot 1:
+
+    Customer:
+        GET  user/getUser /:username
+        GET  user/getSpecificUsers/:username
+        GET  user/private: Hae yksityinen käyttäjä
+        GET  user/: Listaa kaikki käyttäjät.
+        POST /user/register:  Luo uusi käyttäjä.
+        PUT  /user/change-password: Päivitä tietyn käyttäjän salasana.
+        DELETE /user/delete: Poista tietty käyttäjä.
+
+    Personalpage:
+        GET user/getUserLinks/:username   --- Hakee linkit
+        GET user/getLinks (token)         --- Hakee käyttäjän linkit kirjautuneena
+        POST user/addLink (token)        --- Syöttää linkin kirjautuneena
+        DELETE user/deleteLink/:personalpageid   --- Poistaa linkin
+        
+
+    Review
+        GET user/getAll    ---    Listaa kaikki arvostelut
+        GET user/getReview:  ---  Listaa kaikki arvostelut.
+        GET user/getSpecificReview/:reviewid   --- Hakee tietyn arvostelun
+        GET user/getAllByMovie   ---   Hakee arvostelut elokuvan mukaan
+        GET user/UserReview/:username   --- Hakee käyttäjän arvostelut
+        POST /review/addReview   ---   Lisää uusi arvostelu. 
+        
+    Groups:
+        GET user/groups  --- hakee ryhmät
+        GET  user/group/:groupid  --- hakee tietyn ryhmän
+        POST user/postGroup (token)  ---  Lisää ryhmän
+        DELETE user/getDeletedGroup/:groupid  ---  poistaa ryhmän
+
+        POST user/joinGroup/:groupid (token)   --- liittyy ryhmään
+        GET user/getCreatedGroup/:gname --- Hakee ryhmän
+        GET user/getGroup/:groupid    --- hakee tietyn ryhmän
+
+    Actor
+        GET user/getUserActor/:username   --- hakee näyttelijä arvioinnit
+        POST user/addActorReview       ---   syöttää näyttelijä arvioinnin
+
+----------------------------------------------------------------------------------------------------
+
+Syventyminen 2:
+
+Tiedon synkronointi:
+    Synkronoidaan tiedot heti, kun ne päivittyvät. Tämä vaatii enemmän resursseja.
+
+Välimuistitus:
+    Käytetään välimuistia vähentämään tarpeetonta tiedon noutoa rajapinnasta. Tai tallennetaan tieto tietokantaan tietyin väliajoin.
+
+Dataintegraation kerros:
+    Luodaan erillinen kerros, joka käsittelee tiedonvaihdon. Tämä kerros huolehtii synkronoinnista, virheenkäsittelystä yms.
+
+Virheenkäsittely:
+    Pohditaan, miten toimitaan, jos rajapinta ei ole saatavilla tai synkronointi epäonnistuu. Miten ristiriitaisia tietoja käsitellään?
+    Jos esimerkiksi käyttäjä vaihtaa salasanaaa niin ilmoitetaan että salasana vaihdettu, jos tekee käyttäjää joka on jo olemassa niin ilmoittaa siitä että tämä käyttäjä on jo olemassa.
+    Jos tulee error, niin voitaisiin ehdottaa saman kategorian elokuvaa.
+    Jos liian lyhyt salasana niin ilmoittaa asiasta
+    
+
+Tietoturva:
+    Tarkistetaan, että tieto rajapinnasta on turvallista. Käytetään SSL/TLS-salausta ja suojataan tietokanta salauksilla. Käytetään autentikointia kirjautumiseen.
+
+Optimointi:
+    Haetaan vain tarvittava tai muuttunut tieto rajapinnasta.
+
+Tietomallin joustavuus:
+    Tietomalli pitää olla joustava, koska käytössä on sekä paikallinen tietokanta että ulkoinen rajapinta.
+    Resurssien määrittely: Pohditaan, mitkä ovat keskeiset resurssit ja miten ne kuvataan URL-osoitteissa.
+    Jokaisella sivulla tulisi olla selkeästi määritelty URL
+
+Versiohallinta:
+    Jos rajapinta muuttuu, miten varmistetaan yhteensopivuus vanhempien sovellusten kanssa?
+Meidän tulisi käyttää versiointia rajapinnassa, jotta muutokset eivät riko vanhoja sovelluksia. 
+Esimerkiksi URL:ssa voi olla versio, kuten /v1/users/{userId}. Kun teemme merkittäviä muutoksia, lisäämme uuden version, kuten /v2/users/{userId}.
+
+Dokumentaatio:
+    Miten dokumentoidaan rajapinta selkeästi?
+    Dokumentaatio sisältää tiedot siitä, mitä metodeja rajapinnassa on, mitä parametreja ne ottavat vastaan, minkälaista tietoa ne palauttavat ja mahdolliset virhetilanteet.
+
+Tietomalli:
+    Tieto kannattaa mallintaa siten, että se on joustavaa ja helposti laajennettavissa.
+    JSON on yleisin valinta, koska se on kevyt ja helppolukuinen. Esim. palautettaessa useita elokuvia voisi rakenne olla: [{"id":1, "title":"Elokuva 1"}, {"id":2, "title":"Elokuva 2"}].
+
+Käytettävyys:
+    Suunnitellaan rajapinta loogiseksi ja helppokäyttöiseksi.
+    Vältetään monimutkaisia toimintoja ja pitäydytään yksinkertaisissa ja selkeissä pyynnöissä.
+
+Rajapinnan tila:
+    Päätetään, onko rajapinta tilaton vai tilallinen.
+    Yleisesti RESTful rajapinnat ovat tilattomia eli jokainen pyyntö sisältää kaiken tarvittavan tiedon. Tämä yksinkertaistaa rajapintaa ja tekee siitä skaalautuvan.
+    Joissain tapauksissa tilallisuus voi olla hyödyllistä, mutta se tekee järjestelmästä monimutkaisemman.
+
+Testaus:
+    Testikoodi runnataan npm test komennolla, ja siihen käytetään mocha/chiaa. 
+    Rajapinnan testauksessa keskitytään integraatio/ohjelmisto testaukseen eli kirjoitetaan valmis paketti mikä testaa käyttäjän hakemisen, lisäämisen, kirjautumisen ja poistamisen laajasti eri tilanteita varten.
+-----------------------------------------------------------------------------------------------------
+
+Lisäksi 3:
+Autentikointi ja Autorisointi:
+    Miten käyttäjät todentavat itsensä rajapinnassa? JWT-tokenia tai OAuthia hyödyntämällä.
+    Miten varmistetaan, että käyttäjällä on oikeus tehdä tiettyjä toimintoja? Esimerkiksi vain tietyillä käyttäjillä voi olla oikeus poistaa ryhmän jäseniä.
+       Tehdään ryhmään admin, adminiksi määräytyy se joka ryhmän tekee. Tämän pystyy tekemään databasessa ja sitä voi komentaa vain tiettyä tokenia käyttävä käyttäjä.
+
+Tietojen validoiminen ja sanitaatio:
+    Miten varmistetaan, että lähetetty data on oikeassa muodossa ja turvallista?
+--- Datan validoiminen estää virheellisen datan tallennuksen ja sanitaatio auttaa estämään esimerkiksi SQL-injektiot.
+
+Rajapinnan mukautettavuus:
+    Voitaisiin harkita tarjottavaksi mahdollisuus mukauttaa tietojen palautusta, esim. valita, mitä tietoja palautetaan tai minkälaista tietoa rajapinnasta haetaan.
+
+
+
+----
+
+Edistyneempiä toimintoja mitä voi miettiä, jos aikaa jää:
+
+Paginointi:
+    Jos rajapinta palauttaa suuren määrän tietoa, miten tämä tieto jaetaan useampaan osaan? Paginoinnilla voi helpottaa datan käsittelyä.
+
+Käyttäjäpalaute ja tuki:
+    Tarjotaan mahdollisuus antaa palautetta rajapinnasta ja sen toimivuudesta. Myös ohjeet tai tukiportaali, josta kehittäjät saavat apua ongelmatilanteissa, on hyödyllinen.
+
+Rajapinnnan kutsujen rajoitus:
+    Esimerkiksi jos huomataan piikki databasen käytössä, koodi varottaisi mahdollisesta api kutsujen määrän loppumisesta. Sen jälkeen tiettyä käyttäjää kohtaan, estäisi haun 5  minuutiksi.

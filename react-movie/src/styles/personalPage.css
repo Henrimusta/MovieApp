@@ -1,0 +1,150 @@
+/* linkbox.css */
+
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+
+
+
+.input-label {
+    display: block; /* Forces the label to be a block element, making input fields start on a new line */
+    margin-bottom: 5px; /* Adds some space between the label and the input field */
+}
+
+.form-field input[type="text"],
+.form-field input[type="url"] {
+    background-color: #2d2f32;
+    color: white;
+    width: 100%;
+    min-height: 40px; /* Increase height for better visibility */
+    padding: 5px 10px; /* Add padding inside the input fields */
+    margin-bottom: 20px; /* Adds space after the input field */
+}
+
+.shareable-link-input {
+    background-color: #2d2f32; /* Darker background */
+    color: white;
+    width: 40%; /* Adjust width as needed */
+    min-height: 40px;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+    border: none;
+    text-align: center;
+}
+
+
+/* Adjusting the link-box class to match the settings.css */
+.link-box {
+    border-radius: 12px;
+    padding: 20px;
+    margin: 10px auto;
+    max-width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+    font-family: var(--font-raleway);
+    background-color: #1f2123;
+    color: #ffffff;
+}
+
+.link-box:hover {
+    box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05, 1.05); /* Matching the hover effect in settings.css */
+}
+
+/* Ensuring heading consistency */
+.link-box h2 {
+    text-align: center; /* Centering text as in settings.css */
+    color: #f9d3b4;
+    font-family: var(--font-roboto); /* Consistent with h3 in settings.css */
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Styling the list elements to match the design in settings.css */
+.link-box ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.link-box li {
+    margin-bottom: 15px;
+    color: #a1a1a1; /* Matching the color scheme */
+}
+
+/* Link styles for consistency */
+.link-box a {
+    text-decoration: none;
+    color: #f9d3b4;
+    font-weight: 500;
+}
+
+/* Additional styling for span to match the overall design */
+.link-box span {
+    font-size: 0.9em;
+    color: #eee;
+}
+
+.link-description {
+    max-width: 100%; /* Set a maximum width */
+    white-space: normal; /* Allow the text to wrap */
+    word-wrap: break-word; /* Break words that are too long */
+    overflow-wrap: break-word; /* Ensure wrapping in all scenarios */
+    margin-bottom: 5px; /* Space below the description */
+    color: rgb(255, 255, 255); /* Set the text color */
+    text-align: center; /* Center the text */
+}
+
+ul {
+    list-style: none; /* Removes bullet points */
+    padding: 0;
+}
+
+li {
+    margin-bottom: 15px; /* Space between list items */
+    background: #2d2f32; /* Background color for visibility */
+    padding: 10px; /* Padding inside each list item */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.submit-button {
+    background-color: #282828;
+    color: white;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.submit-button:hover {
+    background-color: #1f2123;
+}
+
+.delete-button {
+    background-color: #f70e0e; /* Red background for delete button */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 8px 12px; /* Padding for size */
+    margin-top: 10px; /* Spacing above the button */
+    cursor: pointer; /* Cursor to pointer to indicate it's clickable */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.2s; /* Smooth transition for hover effect */
+}
+
+.delete-button:hover {
+    background-color: #ff7272; /* Slightly darker red on hover */
+}
+
+/* Responsive adjustments to align with settings.css */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .link-box {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 600px) {
+    .link-box {
+        max-width: 95%;
+    }
+}

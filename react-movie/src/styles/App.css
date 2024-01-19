@@ -1,0 +1,1083 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font-roboto: "Roboto Slab", serif;
+  --font-raleway: "Raleway", sans-serif;
+  --mainColor: black;
+  --mainColor: rgb(25, 25, 25);
+  --secondaryColor: rgb(255, 230, 0);
+  --textColor: #eee;
+}
+
+body {
+  font-family: var(--font-roboto);
+  background-color: #212426;
+}
+
+.app {
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.search {
+  width: 71%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1.75rem;
+  border-radius: 3rem;
+  background: #1f2123;
+  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+}
+
+.search input {
+  flex: 1;
+  border: none;
+  font-size: 1.5rem;
+  font-family: var(--font-raleway);
+  font-weight: 500;
+  padding-right: 1rem;
+  outline: none;
+  color: #a1a1a1;
+  background: #1f2123;
+}
+
+.search img {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.empty {
+  width: 100%;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty h2 {
+  font-size: 1.25rem;
+  color: #f9d3b4;
+  font-family: var(--font-raleway);
+}
+
+.container {
+  width: 100%;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* Align items to the start of the cross axis (top) */
+  flex-wrap: wrap;
+}
+
+.movie {
+  width: 310px;
+  height: 460px;
+  margin: 1.5rem;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+  box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+}
+
+.movie div:nth-of-type(1) {
+  position: absolute;
+  padding: 16px;
+  width: 100%;
+  opacity: 0;
+  top: 0;
+  color: #f9d3b4;
+}
+
+.movie:hover {
+  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05, 1.05);
+}
+
+.movie div:nth-of-type(2) {
+  width: 100%;
+  height: 100%;
+}
+
+.movie div:nth-of-type(2) img {
+  height: 100%;
+  width: 100%;
+}
+
+.movie div:nth-of-type(3) {
+  z-index: 2;
+  background-color: #343739;
+  padding: 16px 24px 24px 24px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.movie div:nth-of-type(3) span {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #f0f0f0;
+}
+
+.movie div:nth-of-type(3) h3 {
+  margin-top: 5px;
+  font-family: "Roboto Slab", serif;
+  color: #f9d3b4;
+}
+
+.movie:hover div:nth-of-type(2) {
+  height: 100%;
+  opacity: 0.3;
+}
+
+.movie:hover div:nth-of-type(3) {
+  background-color: transparent;
+}
+
+.movie:hover div:nth-of-type(1) {
+  opacity: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .app {
+    padding: 4rem 2rem;
+  }
+
+  .search {
+    padding: 1rem 1.75rem;
+    width: 100%;
+  }
+
+  .search input {
+    font-size: 1rem;
+  }
+
+  .search img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .app {
+    padding: 4rem 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .container {
+    margin-top: 2rem;
+    z-index: 1;
+  }
+
+  .movie {
+    width: 100%;
+    margin: 1rem;
+  }
+}
+
+/*this part controls the styling of the different themes*/
+body.dark {
+  background-color: #121212;
+}
+
+background.dark {
+  background-color: #121212;
+}
+
+.app.dark {
+  color: #ffffff;
+  background-color: #121212;
+}
+
+.search.dark {
+  background: #282828;
+  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+}
+
+.search.dark input {
+  color: #ffffff;
+  background: #282828;
+}
+
+.empty.dark {
+  color: #ffffff;
+}
+
+.container.dark {
+  background-color: #121212;
+}
+
+.movie.dark {
+  background-color: #282828;
+  box-shadow: 0px 13px 10px -7px rgba(255, 255, 255, 0.1);
+}
+
+.movie.dark div:nth-of-type(1) {
+  color: #ffffff;
+}
+
+.movie.dark div:nth-of-type(3) {
+  background-color: #121212;
+}
+
+.movie.dark div:nth-of-type(3) span {
+  color: #616161;
+}
+
+.movie.dark div:nth-of-type(3) h3 {
+  color: #ffffff;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 2rem;
+  background-color: var(--mainColor);
+  color: var(--textColor);
+  z-index: 2;
+}
+
+nav a {
+  margin: 0 1rem;
+  color: var(--textColor);
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--secondaryColor);
+}
+
+header .nav-btn {
+  padding: 5px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--textColor);
+  visibility: hidden;
+  opacity: 0;
+  font-size: 1.8rem;
+}
+
+header div,
+nav {
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1024px) {
+  header .nav-btn {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  header nav {
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: var(--mainColor);
+    transition: 1s;
+    z-index: 3;
+  }
+
+  header .responsive_nav {
+    transform: translateY(100vh);
+  }
+
+  nav .nav-close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  nav a {
+    font-size: 1.5rem;
+  }
+}
+
+/*Actor tab styling beginning*/
+
+.actor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.actor-card {
+  width: 200px;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #242628;
+  border-radius: 8px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.actor-card h3 {
+  color: #faddc6;
+}
+
+.actor input {
+  width: 71%;
+  margin: 2rem 0 1rem;
+  padding: 1.5rem 1.75rem;
+  border-radius: 3rem;
+  background: #1f2123;
+  border: none;
+  color: #a1a1a1;
+  font-size: 1.5rem;
+  font-family: var(--font-raleway);
+  font-weight: 500;
+  outline: none;
+}
+
+.actor button {
+  width: 71%;
+  margin: 1rem 0;
+  padding: 1.5rem 1.75rem;
+  border-radius: 3rem;
+  background: #1f2123;
+  border: none;
+  color: #a1a1a1;
+  font-size: 1.5rem;
+  font-family: var(--font-raleway);
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+}
+
+.ReviewFormForActor {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+}
+
+.ReviewFormForActor label {
+  margin-bottom: 8px;
+}
+
+.ReviewFormForActor input,
+.ReviewFormForActor select {
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.ReviewFormForActor button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.ReviewFormForActor button:hover {
+  background-color: #45a049;
+}
+
+.reviewactorform {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.actor-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.actor-list-item {
+  width: 200px;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #282828;
+  border-radius: 8px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.actor-list-item h3 {
+  color: #f9d3b4;
+}
+
+.actor-card a {
+  color: #ffffff;
+  /* Set the text color to white */
+  text-decoration: none;
+}
+
+/* Actor tab styling end*/
+
+/* ReviewFormForActor styling beginning*/
+
+.ReviewFormForActor {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+}
+
+.ReviewFormForActor label {
+  margin-bottom: 8px;
+  color: #f9d3b4;
+  /* Match the color used for actor names in actor cards */
+}
+
+.ReviewFormForActor input,
+.ReviewFormForActor select {
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #1f2123;
+  /* Match the background color used for input fields in actor tab */
+  color: #a1a1a1;
+  font-size: 1rem;
+  /* Adjust font size as needed */
+}
+
+.ReviewFormForActor textarea {
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #1f2123;
+  color: #a1a1a1;
+  font-size: 1rem;
+  resize: vertical;
+  /* Allow vertical resizing of the textarea */
+}
+
+.ReviewFormForActor button {
+  padding: 10px;
+  background-color: #282828;
+  /* Match the green color used for submit buttons in actor tab */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.ReviewFormForActor button:hover {
+  background-color: #1f2123;
+}
+
+/* ReviewFormForActor styling ending*/
+.link-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.link-card a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.link-card a:hover {
+  text-decoration: underline;
+}
+
+/* UserSearch component styling */
+.user-search {
+  width: 100%;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-search input {
+  width: 50%;
+  padding: 1rem;
+  border-radius: 3rem;
+  border: none;
+  font-size: 1.5rem;
+  font-family: var(--font-raleway);
+  font-weight: 500;
+  outline: none;
+  color: #a1a1a1;
+  background: #1f2123;
+}
+
+.user-search button,
+.user-search img {
+  margin-left: 1rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.user-search img {
+  width: 35px;
+  height: 35px;
+}
+
+.user-search ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.user-search li {
+  margin: 0.5rem 0;
+}
+
+.user-search a {
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--font-raleway);
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.user-search a:hover {
+  text-decoration: underline;
+}
+
+
+/* Review tab styling */
+.reviews-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.reviews-container h2 {
+  font-size: 2rem;
+  color: #f9d3b4;
+  margin-bottom: 1rem;
+}
+
+.reviews-left,
+.reviews-right {
+  flex: 1;
+}
+
+.reviews-left {
+  margin-right: 2rem;
+}
+
+.reviews-right {
+  margin-left: 2rem;
+}
+
+@media (max-width: 600px) {
+  .reviews-container {
+    flex-direction: column;
+  }
+
+  .reviews-left {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .reviews-right {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/* Review table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th,
+td {
+  border: 1px solid #343739;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+th {
+  background-color: #282828;
+  color: #eee;
+}
+
+/* Select box styles */
+label {
+  color: #eee;
+  margin-right: 1rem;
+}
+
+select {
+  padding: 0.5rem;
+  border-radius: 3px;
+  border: 1px solid #343739;
+  background-color: #282828;
+  color: #eee;
+}
+
+/* Button styles */
+button {
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #1f2123;
+  color: #a1a1a1;
+  font-size: 1rem;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #282828;
+}
+
+/* Actor Reviews container styles */
+.top-rated-actors-container {
+  margin-top: 2rem;
+}
+
+/* Actor Reviews table styles */
+.top-rated-actors-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.top-rated-actors-container th,
+.top-rated-actors-container td {
+  border: 1px solid #343739;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.top-rated-actors-container th {
+  background-color: #282828;
+  color: #eee;
+}
+
+/* Actor Reviews card styles */
+.actorReviewCard {
+  width: 200px;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #242628;
+  border-radius: 8px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: #faddc6;
+}
+
+.actorReviewCard h3 {
+  color: #faddc6;
+}
+
+/* Search box styles */
+label[for="searchTerm"] {
+  color: #242628;
+  margin-right: 1rem;
+}
+
+#searchTerm {
+  padding: 0.5rem;
+  border-radius: 3px;
+  border: 1px solid #343739;
+  background-color: #282828;
+  color: #eee;
+  margin-right: 1rem;
+}
+
+#searchButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #1f2123;
+  color: #a1a1a1;
+  font-size: 1rem;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+#searchButton:hover {
+  background-color: #282828;
+}
+
+/* Reset button styles */
+#resetButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: #1f2123;
+  color: #a1a1a1;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+#resetButton:hover {
+  background-color: #282828;
+}
+
+.search {
+  width: 71%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1.75rem;
+  border-radius: 3rem;
+  background: #1f2123;
+  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+}
+
+.search input {
+  flex: 1;
+  border: none;
+  font-size: 1.5rem;
+  font-family: var(--font-raleway);
+  font-weight: 500;
+  padding-right: 1rem;
+  outline: none;
+  color: #a1a1a1;
+  background: #1f2123;
+}
+
+.search img {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  justify-content: center;
+}
+
+/* Additional styles for the search button */
+.search {
+  width: 71%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1.75rem;
+  border-radius: 3rem;
+  background: #282828;
+  /* Updated color to a grey shade */
+  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+}
+
+.search input {
+  flex: 1;
+  border: none;
+  font-size: 1.5rem;
+  font-family: var(--font-raleway);
+  font-weight: 500;
+  padding-right: 1rem;
+  outline: none;
+  color: #a1a1a1;
+  background: #282828;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Match the background color */
+}
+
+.search img {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  justify-content: center;
+}
+
+/* Additional styles for the search button */
+.search button {
+  background: #282828;
+  /* Match the background color */
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin-left: 1rem;
+  border-radius: 3rem;
+  font-size: 1.5rem;
+  font-family: var(--font-raleway);
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  color: #a1a1a1;
+}
+
+.search button:hover {
+  background: #333333;
+  /* Darker background color on hover */
+}
+
+
+
+
+.moviecard {
+  width: 310px;
+  height: 460px;
+  margin: 1.5rem;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+  box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+}
+
+.moviecard div:nth-of-type(1) {
+  position: absolute;
+  padding: 16px;
+  width: 100%;
+  opacity: 0;
+  top: 0;
+  color: #f9d3b4;
+}
+
+.moviecard:hover {
+  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05, 1.05);
+}
+
+.moviecard div:nth-of-type(2) {
+  width: 100%;
+  height: 100%;
+}
+
+.moviecard div:nth-of-type(2) img {
+  height: 100%;
+  width: 100%;
+}
+
+.moviecard div:nth-of-type(3) {
+  z-index: 2;
+  background-color: #343739;
+  padding: 16px 24px 24px 24px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.moviecard div:nth-of-type(3) span {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #f0f0f0;
+}
+
+.moviecard div:nth-of-type(3) h3 {
+  margin-top: 5px;
+  font-family: "Roboto Slab", serif;
+  color: #f9d3b4;
+}
+
+.moviecard:hover div:nth-of-type(2) {
+  height: 100%;
+  opacity: 0.3;
+}
+
+.moviecard:hover div:nth-of-type(3) {
+  background-color: transparent;
+}
+
+.moviecard:hover div:nth-of-type(1) {
+  opacity: 1;
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.component-container {
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: #1f2123;
+}
+
+/* Heading styles */
+.component-container h2 {
+  text-align: center;
+  color: #eee;
+  margin-bottom: 20px;
+}
+
+/* Input styles */
+.component-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background-color: #282828;
+  color: #eee;
+  outline: none;
+}
+
+/* Button styles */
+.component-container button {
+  background-color: #343739;
+  color: #eee;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.component-container button:hover {
+  opacity: 0.8;
+}
+
+.manage-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.manage-buttons button {
+  padding: 10px 20px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.manage-buttons button:hover {
+  background-color: #2980b9;
+}
+
+.custom-container {
+  background-color: #282828;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  color: #eee;
+}
+
+.component-recommend {
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: #1f2123;
+}
+
+/* Heading styles */
+.component-recommend h2 {
+  text-align: center;
+  color: #eee;
+  margin-bottom: 20px;
+}
+
+/* Input styles */
+.component-recommend input {
+  width: 30%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background-color: #282828;
+  color: #eee;
+  outline: none;
+}
+
+/* Button styles */
+.component-recommend button {
+  background-color: #343739;
+  color: #eee;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+  border-radius: 6px;
+}
+
+.component-recommend button:hover {
+  opacity: 0.8;
+}
+
+.user-list {
+  padding: 0;
+  margin: 0;
+  width: 71%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-list li {
+  margin: 1rem 0;
+  display: flex; /* Add this line to make it a flex container */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+
+.user-list a {
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--font-raleway);
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.user-list a:hover {
+  color:var(--secondaryColor);
+}
+
